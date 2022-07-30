@@ -1,8 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
-
+import appBarSlice from '../features/AppBar/appBarSlice';
+import circularSpeedDialSlice from '../features/CircularSpeedDial/circularSpeedDialSlice';
+import favouritesSlice from '../features/Favourites/favouritesSlice';
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
-  },
+    nav: appBarSlice,
+    dial: circularSpeedDialSlice,
+    favourites: favouritesSlice,
+  }
 });
