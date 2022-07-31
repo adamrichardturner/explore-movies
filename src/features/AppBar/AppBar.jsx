@@ -22,7 +22,7 @@ import WhatshotIcon from '@mui/icons-material/Whatshot';
 import StarIcon from '@mui/icons-material/Star';
 import { updateSelectedItem } from './appBarSlice';
 import { useDispatch } from 'react-redux';
-
+import { NavLink } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -142,6 +142,7 @@ export default function MiniDrawer() {
         </DrawerHeader>
         <Divider />
         <List>
+          <NavLink to="/">
             <ListItem key="home" disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -163,6 +164,7 @@ export default function MiniDrawer() {
                 <ListItemText primary={"Home"} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
+          </NavLink>
             <ListItem key={"search"} disablePadding sx={{ display: 'block' }}>
             <ListItemButton
               sx={{
@@ -184,7 +186,31 @@ export default function MiniDrawer() {
               <ListItemText primary={"Search"} sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
-          <ListItem key={"trending"} disablePadding sx={{ display: 'block' }}>
+          <NavLink to="/trending">
+            <ListItem key={"trending"} disablePadding sx={{ display: 'block' }}>
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+              onClick={onNavItemClick}
+            >
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
+                }}
+              >
+                <WhatshotIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Trending"} sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+          </ListItem>
+        </NavLink>
+        <NavLink to="/favourites">
+          <ListItem key={"favourites"} disablePadding sx={{ display: 'block' }}>
           <ListItemButton
             sx={{
               minHeight: 48,
@@ -200,32 +226,12 @@ export default function MiniDrawer() {
                 justifyContent: 'center',
               }}
             >
-              <WhatshotIcon />
+              <StarIcon />
             </ListItemIcon>
-            <ListItemText primary={"Trending"} sx={{ opacity: open ? 1 : 0 }} />
+            <ListItemText primary={"Favourites"} sx={{ opacity: open ? 1 : 0 }} />
           </ListItemButton>
         </ListItem>
-        <ListItem key={"favourites"} disablePadding sx={{ display: 'block' }}>
-        <ListItemButton
-          sx={{
-            minHeight: 48,
-            justifyContent: open ? 'initial' : 'center',
-            px: 2.5,
-          }}
-          onClick={onNavItemClick}
-        >
-          <ListItemIcon
-            sx={{
-              minWidth: 0,
-              mr: open ? 3 : 'auto',
-              justifyContent: 'center',
-            }}
-          >
-            <StarIcon />
-          </ListItemIcon>
-          <ListItemText primary={"Favourites"} sx={{ opacity: open ? 1 : 0 }} />
-        </ListItemButton>
-      </ListItem>
+      </NavLink>
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>

@@ -6,7 +6,7 @@ import './Loader.css';
 export const Loader = () => {
   return (
     <div className="loaderWrapper">
-      <Box sx={{ display: 'flex', justifyContent: 'center'}}>
+      <Box sx={{ display: 'flex'}}>
         <CircularProgress />
       </Box>
     </div>
