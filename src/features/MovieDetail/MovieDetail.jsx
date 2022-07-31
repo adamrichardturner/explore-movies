@@ -5,22 +5,18 @@ import { updateSelectedMovieId } from './movieDetailSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getMovieDetails } from './movieDetailSlice';
-import { Tmdb } from '../../util/Tmdb';
 
 export const MovieDetail = () => {
     const navigate = useNavigate();
     const { id } = useParams();
     const dispatch = useDispatch();
-    const movieId = useSelector(state => state.selectedMovie.selectedMovieId)
+
     useEffect(() => {
-        console.log(id)
         dispatch(updateSelectedMovieId(id));
-        dispatch(getMovieDetails('361743'));
-    },[])
+        dispatch(getMovieDetails(id))
+    },[dispatch, id])
 
     const movieData = useSelector(state => state.selectedMovie.selectedMovieData);
-
-    console.log(movieData)
 
     return (
         <div className="movieDetailWrapper">

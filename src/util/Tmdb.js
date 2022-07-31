@@ -14,14 +14,11 @@ export const Tmdb = {
         }
     },
     async getMovieDetails (movieId) {
-        await axios.get('http://localhost:8000/movie/', {
+        const response = await axios.get('http://localhost:8000/movie/', {
             params: {
                 id: movieId
             }
-        })
-        .then(response => {
-            console.log(`Response is ${response.data}`)
-            return response.data;
-        })
+        });
+        return await Object.values(response);
     }
 }

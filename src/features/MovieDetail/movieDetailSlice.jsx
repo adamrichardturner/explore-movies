@@ -1,11 +1,17 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { Tmdb } from '../../util/Tmdb';
+import {store} from '../../app/store';
 
 export const getMovieDetails = createAsyncThunk(
     'selectedMovie/selectedMovieData',
     async (movieId, thunkAPI) => {
+        const stateBefore = store.getState();
+        console.log(stateBefore);
+        console.log(`Movie ID is ${movieId}`)
         const response = await Tmdb.getMovieDetails(movieId);
-        console.log(response)
+        const stateAfter = store.getState();
+        console.log(stateAfter)
+        return response[0];
     }
 );
 
@@ -13,7 +19,7 @@ const movieDetailSlice = createSlice({
     name: "selectedMovie",
     initialState: {
         selectedMovieId: '',
-        selectedMovieData: {}
+        selectedMovieData: []
     },
     reducers: {
         updateSelectedMovieId: (state, action) => {
