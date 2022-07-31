@@ -7,6 +7,8 @@ import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
 import SaveIcon from '@mui/icons-material/Save';
 import PrintIcon from '@mui/icons-material/Print';
 import ShareIcon from '@mui/icons-material/Share';
+import './CircularSpeedDial.css';
+
 
 const actions = [
   { icon: <FileCopyIcon />, name: 'Copy' },

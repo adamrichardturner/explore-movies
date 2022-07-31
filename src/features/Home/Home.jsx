@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { getHomeMovies } from './homeSlice';
 import { Loader } from '../Loader/Loader';
-import { CircularSpeedDial } from '../CircularSpeedDial/CircularSpeedDial';
 
 export const Home = () => {
     const dispatch = useDispatch();
@@ -28,7 +27,6 @@ export const Home = () => {
     return (
         <main className="movieCards">
             {isLoading ? <Loader /> : movieCards}
-            <CircularSpeedDial />
         </main>
     )
 }
