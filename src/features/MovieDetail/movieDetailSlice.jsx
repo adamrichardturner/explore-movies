@@ -5,12 +5,7 @@ import {store} from '../../app/store';
 export const getMovieDetails = createAsyncThunk(
     'selectedMovie/selectedMovieData',
     async (movieId, thunkAPI) => {
-        const stateBefore = store.getState();
-        console.log(stateBefore);
-        console.log(`Movie ID is ${movieId}`)
         const response = await Tmdb.getMovieDetails(movieId);
-        const stateAfter = store.getState();
-        console.log(stateAfter)
         return response[0];
     }
 );
