@@ -1,0 +1,4 @@
+main div#movieDetailHead {
+    display: flex;
+    justify-content: flex-start;
+}

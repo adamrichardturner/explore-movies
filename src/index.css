@@ -12,11 +12,27 @@ code {
     monospace;
 }
 
-main {
+main div.homeGrid {
   margin-left: 62px;
   margin-top: -24px;
   display: grid;
   padding: 10px;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   grid-gap: 5px;
+}
+
+main div#movieDetailHead {
+  display: flex;
+  justify-content: flex-start;
+}
+
+main div#movieDetailPoster {
+  background: black;
+  height: 50vh;
+  width: 75vw;
+}
+
+main div.movieDetailWrapper {
+  margin-left: 74px;
+  margin-top: -24px;
 }

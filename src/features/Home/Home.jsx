@@ -11,14 +11,14 @@ export const Home = () => {
     const dispatch = useDispatch();
     const isLoading = useSelector(state => state.home.loading);
     const movies = useSelector(state => state.home.movies);
-    const movieCards = !isLoading && Object.values(movies).map((movie, index) => {
+    const movieCards = !isLoading && Object.values(movies).map(movie => {
         return (
             <Link to={`/movie/${movie.id}`} key={movie.id}>
                 <MovieCard 
                     key={movie.title}
                     title={movie.title}
                     image={movie.backdrop_path}
-                    userId={movie.id}
+                    movieId={movie.id}
                 />
             </Link>
         )
@@ -29,8 +29,8 @@ export const Home = () => {
       }, [dispatch])
 
     return (
-        <>
+        <div className="homeGrid">
             {isLoading ? <Loader /> : movieCards}
-        </>
+        </div>
     )
 }
