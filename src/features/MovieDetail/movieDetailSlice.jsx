@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { Tmdb } from '../../util/Tmdb';
-import {store} from '../../app/store';
 
 export const getMovieDetails = createAsyncThunk(
     'selectedMovie/selectedMovieData',

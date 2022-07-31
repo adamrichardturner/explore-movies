@@ -13,6 +13,18 @@ export const Tmdb = {
             console.log(error);
         }
     },
+    async getTrendingMovies () {
+        try {
+            const response = await fetch('http://localhost:8000/trending/movie/week');
+            if(response.ok) {
+                const jsonResponse = await response.json();
+                return Object.values(jsonResponse);
+            }
+            throw new Error('Request for trending movies failed.');
+        } catch (error) {
+            console.log(error);
+        }
+    },
     async getMovieDetails (movieId) {
         const response = await axios.get('http://localhost:8000/movie/', {
             params: {

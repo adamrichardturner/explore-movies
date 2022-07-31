@@ -25,8 +25,8 @@ export const Home = () => {
     });
 
     useEffect(() => {
-        dispatch(getHomeMovies())
-      }, [dispatch])
+        dispatch(getHomeMovies());
+      }, [dispatch]);
 
     return (
         <div className="homeGrid">

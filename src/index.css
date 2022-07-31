@@ -34,6 +34,10 @@ div.movieDetailImage > img {
 
 div.movieDetailImage {
   max-width: 60vw;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 
 main div.movieDetailWrapper {
@@ -44,6 +48,37 @@ main div.movieDetailWrapper {
   margin-left: 74px;
   margin-top: -24px;
   margin-bottom: 24px;
+}
+
+main div.movieDetailButtonWrapper button {
+    padding: 14px;
+    margin-right: 10px;
+    background: #1976d2;
+    color: white;
+    text-indent: 0px;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-end;
+    padding: 1px 6px;
+    border-width: 0px;
+    border-style: outset;
+    border-color: #1976d2;
+}
+
+div.movieDetailWrapper > h2 {
+  font-size: 3rem;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+#addToFavourite {
+  font-size: 62px;
+  color: gold;
+}
+
+#addToFavourite:hover {
+  color: orangered;
+  cursor: pointer;
 }
 
 article.movieDetailOverview {
