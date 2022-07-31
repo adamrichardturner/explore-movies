@@ -15,7 +15,7 @@ const actions = [
   { icon: <ShareIcon />, name: 'Share' },
 ];
 
-export default function CircularSpeedDial() {
+export const CircularSpeedDial = () => {
   return (
     <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1 }}>
       <SpeedDial

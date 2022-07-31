@@ -1,22 +1,16 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 
-export const MovieCard = () => {
+export const MovieCard = ({title, image}) => {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
-        height="200"
-        image="/static/images/cards/contemplative-reptile.jpg"
-        alt="green iguana"
+        height="auto"
+        image={`https://image.tmdb.org/t/p/original${image}`}
+        alt={title}
       />
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
     </Card>
   );
 }

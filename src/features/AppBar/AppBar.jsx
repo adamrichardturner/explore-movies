@@ -23,6 +23,7 @@ import StarIcon from '@mui/icons-material/Star';
 import { updateSelectedItem } from './appBarSlice';
 import { useDispatch } from 'react-redux';
 
+
 const drawerWidth = 240;
 
 // MUI APP BAR FUNCTIONS
