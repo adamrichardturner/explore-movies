@@ -12,7 +12,8 @@ export const getTrendingMovies = createAsyncThunk(
 const trendingSlice = createSlice({
     name: "trending",
     initialState: {
-        movies: []
+        movies: [],
+        loading: true
     },
     reducers: {
         updateTrendingMovies: (state, action) => {
@@ -33,5 +34,5 @@ const trendingSlice = createSlice({
     }
 });
 
-export const { updateTrendingMovies} = trendingSlice.actions;
+export const { updateTrendingMovies } = trendingSlice.actions;
 export default trendingSlice.reducer;

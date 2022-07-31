@@ -44,7 +44,7 @@ app.get(selectedMovieEndpoint, (req, res) => {
 })
 
 const trendingEndpoint = "/trending";
-const trendingData = "movie/week";
+const trendingData = "/movie/week";
 const fullTrendingQuery = `${BASE_URL}${trendingEndpoint}${trendingData}?api_key=${process.env.TMDB_API_KEY}`;
 
 app.get(trendingEndpoint, (req, res) => {
@@ -53,7 +53,6 @@ app.get(trendingEndpoint, (req, res) => {
         url: fullTrendingQuery
     }
     axios.request(options).then((response) => {
-        console.log(response.data.results)
         res.json(response.data.results);
 
     }).catch((error) => {
