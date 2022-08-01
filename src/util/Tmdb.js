@@ -18,7 +18,6 @@ export const Tmdb = {
             const response = await fetch('http://localhost:8000/trending/');
             if(response.ok) {
                 const jsonResponse = await response.json();
-                console.log(jsonResponse)
                 return Object.values(jsonResponse);
             }
             throw new Error('Request for trending movies failed.');

@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getMovieDetails } from './movieDetailSlice';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
+import { updateFavourites } from '../Favourites/favouritesSlice';
+import { getFavouriteMovieDetails } from '../Favourites/favouritesSlice';
 
 export const MovieDetail = () => {
     const dispatch = useDispatch();
@@ -17,6 +19,11 @@ export const MovieDetail = () => {
           backdrop_path,
           vote_average,
           release_date } = movieData;
+
+    const handleClick = () => {
+        dispatch(updateFavourites(id));
+        dispatch(getFavouriteMovieDetails(id));
+    }
 
     useEffect(() => {
         dispatch(updateSelectedMovieId(id));
@@ -32,7 +39,10 @@ export const MovieDetail = () => {
                         <button>Released: {release_date}</button>
                         <button>Average Rating: {Math.floor(vote_average)}</button>
                     </div>
-                    <StarBorderIcon id="addToFavourite"/>
+                    <StarBorderIcon 
+                    id="addToFavourite"
+                    onClick={handleClick}
+                    />
                 </div>
                 <h2>{title}</h2>
                 <article className="movieDetailOverview">
