@@ -17,12 +17,11 @@ const favouritesSlice = createSlice({
     },
     reducers: {
         updateFavourites: (state, action) => {
-            if(state.movies.includes(action.payload)) {
-                state.movies = state.movies.filter(e => e !== action.payload);
-                state.selectedMovieData = state.selectedMovieData.filter(e => e.id !== parseInt(action.payload))
-            } else {
-                state.movies.push(action.payload)
-            }
+            state.movies.push(action.payload);
+        },
+        removeFavourites: (state, action) => {
+            state.movies = state.movies.filter(e => e !== action.payload);
+            state.selectedMovieData = state.selectedMovieData.filter(e => e.id.toString() !== action.payload);
         }
     },
     extraReducers: {
@@ -33,7 +32,7 @@ const favouritesSlice = createSlice({
         [getFavouriteMovieDetails.fulfilled]: (state, action) => {
             state.isLoading = false;
             state.hasError = false;
-            state.selectedMovieData.push(action.payload);
+            state.selectedMovieData.push(action.payload)
         },
         [getFavouriteMovieDetails.rejected]: (state, action) => {
             state.isLoading = false;
@@ -42,5 +41,5 @@ const favouritesSlice = createSlice({
     }
 });
 
-export const { updateFavourites } = favouritesSlice.actions;
+export const { updateFavourites, removeFavourites } = favouritesSlice.actions;
 export default favouritesSlice.reducer;

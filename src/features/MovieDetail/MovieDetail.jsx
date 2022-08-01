@@ -7,13 +7,14 @@ import { useEffect } from 'react';
 import { getMovieDetails } from './movieDetailSlice';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { updateFavourites } from '../Favourites/favouritesSlice';
-import { getFavouriteMovieDetails } from '../Favourites/favouritesSlice';
+import { getFavouriteMovieDetails, removeFavourites } from '../Favourites/favouritesSlice';
 
 export const MovieDetail = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { id } = useParams();
     const movieData = useSelector(state => state.selectedMovie.selectedMovieData);
+    const favourites = useSelector(state => state.favourites.movies);
     let { title,
           overview,
           backdrop_path,
@@ -21,8 +22,12 @@ export const MovieDetail = () => {
           release_date } = movieData;
 
     const handleClick = () => {
-        dispatch(updateFavourites(id));
-        dispatch(getFavouriteMovieDetails(id));
+        if(favourites.includes(id)) {
+            dispatch(removeFavourites(id));
+        } else {
+            dispatch(updateFavourites(id));
+            dispatch(getFavouriteMovieDetails(id));
+        }
     }
 
     useEffect(() => {
