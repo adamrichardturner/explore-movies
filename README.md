@@ -1,12 +1,39 @@
-# Getting Started with Create React App and Redux
+# Explore Movies | TMdb React & Redux Movie App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+
+Explore Movies features a responsive movie grid of popular and trending movies. The data used in this application is sourced from [The Movie Database (TMdb) API.](https://developers.themoviedb.org/3). The app was built primarily with React, React Router v6 & React-Redux toolkit, with use of Material UI components such as a Card and AppBar that have been customized.
+
+## Demo
+
+You can [view a live demo of this project deployed on my portfolio.](https://adamrichardturner.dev/projects/explore-movies/)
+
+## Features
+
+1. Responsive Home & Trending Gallery of Popular Movies - The homepage serves 20 of the most popular movies on TMdb. There is also a Trending page that returns trending movies. 
+
+2. Movie Details View - Users can click an individual movie card and it will serve a page with metadata regarding the chosen movie.
+
+3. Add to Favourite Functionality - It is possible to add movies to a favourites list and peruse this, though no persistent storage is used.
+
+4. Search - Queries made will use the search API endpoint and return movies related to the keywords used.
+
+## Getting Started
+
+Clone the repository and add a .env file in the src directory.
+
+Visit and register at [TMDb API](https://developers.themoviedb.org/3/getting-started/introduction) to obtain an API key.
+
+Place your API key in the env. file as follows:
+
+TMDB_API_KEY="API KEY HERE"
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run start:backend` 
+### `npm run start:frontend`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
