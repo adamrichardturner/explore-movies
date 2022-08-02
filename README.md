@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
-Explore Movies features a responsive movie grid of popular and trending movies. The data used in this application is sourced from [The Movie Database (TMdb) API.](https://developers.themoviedb.org/3). The app was built primarily with React, React Router v6 & React-Redux toolkit, with use of Material UI components such as a Card and AppBar that have been customized.
+Explore Movies features a responsive movie grid of popular and trending movies. The data used in this application is sourced from [The Movie Database (TMdb) API](https://developers.themoviedb.org/3). The app was built primarily with React, React Router v6 & React-Redux toolkit, with use of Material UI components such as a Card and AppBar that have been customized.
 
 ## Demo
 
@@ -17,6 +17,14 @@ You can [view a live demo of this project deployed on my portfolio.](https://ada
 3. Add to Favourite Functionality - It is possible to add movies to a favourites list and peruse this, though no persistent storage is used.
 
 4. Search - Queries made will use the search API endpoint and return movies related to the keywords used.
+
+## Future Enhancements
+
+1. Infinite Scroll - It is possible to fetch pages of more than 20 movie data requests (according to the API documentation, up to 1000 pages). It would be interesting to implement an infinte scroll feature where the user fetches more movies on scroll.
+
+2. Persistent Storage - Using browser based features or a backend with database, it would be useful to implement saving to favourites per user. 
+
+3. More information on the Movie Details View - It would be useful to include Movie trailers, links to the website for the movie and actor details.
 
 ## Getting Started
 
