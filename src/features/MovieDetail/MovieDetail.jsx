@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { getFavouriteMovieDetails, updateFavourites, removeFavourites } from '../Favourites/favouritesSlice';
 import Loader from '../Loader/Loader.svg';
+import Placeholder from './explore-movies-backdrop.jpg';
 
 export const MovieDetail = () => {
     const dispatch = useDispatch();
@@ -42,7 +43,7 @@ export const MovieDetail = () => {
     const movieDetails = (
     <>
         <div className="movieDetailImage">
-            <img src={`https://image.tmdb.org/t/p/original${backdrop_path}`} alt={title}/>
+            <img src={backdrop_path ? `https://image.tmdb.org/t/p/original${backdrop_path}` : Placeholder} alt={title}/>
             <div className="movieDetailButtonWrapper">
                 <button>Released: {release_date}</button>
                 <button>Average Rating: {Math.floor(vote_average)}</button>

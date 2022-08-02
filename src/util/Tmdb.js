@@ -32,5 +32,13 @@ export const Tmdb = {
             }
         });
         return await Object.values(response);
+    },
+    async getMovieFromSearch (searchTerm) {
+        const response = await axios.get('http://localhost:8000/search/movie', {
+            params: {
+                term: searchTerm
+            }
+        });
+        return await Object.values(response);
     }
 }

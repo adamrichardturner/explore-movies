@@ -38,14 +38,7 @@
     text-align: center;
 }
 
-.textMobile {
-    display: none;
-}
-
 @media only screen and (max-width: 767px) {
-    .textMobile {
-        display: block;
-    }
     .cardContainer:hover .cardOverlay {
         opacity: 0;
         cursor: pointer;

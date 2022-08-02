@@ -17,7 +17,7 @@ export const Home = () => {
                 <MovieCard 
                     key={movie.title}
                     title={movie.title}
-                    image={movie.backdrop_path}
+                    image={movie.poster_path}
                     movieId={movie.id}
                 />
             </Link>

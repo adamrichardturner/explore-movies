@@ -43,6 +43,21 @@ app.get(selectedMovieEndpoint, (req, res) => {
     })
 })
 
+const searchMovieEndpoint = "/search/movie";
+
+app.get(searchMovieEndpoint, (req, res) => {
+    const term = req.query.term;
+    const options = {
+        method: 'GET',
+        url: `${BASE_URL}${searchMovieEndpoint}?api_key=${process.env.TMDB_API_KEY}&query=${term}&include_adult=false`
+    }
+    axios.request(options).then((response) => {
+        res.json(response.data);
+    }).catch((error) => {
+        console.error(error);
+    })
+})
+
 const trendingEndpoint = "/trending";
 const trendingData = "/movie/week";
 const fullTrendingQuery = `${BASE_URL}${trendingEndpoint}${trendingData}?api_key=${process.env.TMDB_API_KEY}`;

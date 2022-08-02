@@ -1,18 +1,15 @@
 import { useEffect } from "react";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
-import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getTrendingMovies } from "./trendingSlice";
 import Loader from '../Loader/Loader.svg';
 
-export const Trending = () => {
-    const dispatch = useDispatch();
-    const isLoading = useSelector(state => state.trending.loading);
-    const movies = useSelector(state => state.trending.movies);
-    const movieCards = !isLoading && Object.values(movies).map(movie => {
+export const Search = () => {
+    const isLoading = useSelector(state => state.search.isLoading);
+    const movies = useSelector(state => state.search.movies);
+    const movieCards = !isLoading && Object.values(movies.results).map((movie, index) => {
         return (
-            <Link to={`/movie/${movie.id}`} key={movie.id}>
+            <Link to={`/movie/${movie.id}`} key={index + 1}>
                 <MovieCard 
                     key={movie.title}
                     title={movie.title}
@@ -24,8 +21,9 @@ export const Trending = () => {
     });
 
     useEffect(() => {
-        dispatch(getTrendingMovies());
-    }, [dispatch]);
+
+    })
+
     return (
         <div className="homeGrid">
             {isLoading ? <img src={Loader} id="loadingAnimation" alt="Loading"/> : movieCards}

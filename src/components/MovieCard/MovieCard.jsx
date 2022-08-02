@@ -2,6 +2,7 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import './MovieCard.css';
+import Placeholder from './explore-movies-poster.jpg';
 
 export const MovieCard = ({title, image}) => {
   return (
@@ -10,14 +11,13 @@ export const MovieCard = ({title, image}) => {
             <CardMedia
                 component="img"
                 height="auto"
-                image={`https://image.tmdb.org/t/p/original${image}`}
+                image={image ? `https://image.tmdb.org/t/p/original${image}` : Placeholder}
                 alt={title}
             />
         </Card>
         <div className="cardOverlay">
             <div className="text">{title}</div>
         </div>
-        <div className="textMobile">{title}</div>
     </div>
   );
 }

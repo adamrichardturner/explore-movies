@@ -23,6 +23,7 @@ import StarIcon from '@mui/icons-material/Star';
 import { updateSelectedItem } from './appBarSlice';
 import { useDispatch } from 'react-redux';
 import { NavLink } from "react-router-dom";
+import { SearchBar } from '../SearchBar/SearchBar';
 
 const drawerWidth = 240;
 
@@ -112,7 +113,18 @@ export default function MiniDrawer() {
     setOpen(false);
   };
 
+  const [modalOpen, setModalOpen] = React.useState(false);
+
+  const handleModalOpen = () => {
+    modalOpen ? setModalOpen(false) : setModalOpen(true);
+  }
+
   return (
+    <>
+    <SearchBar 
+      handleModalOpen={handleModalOpen}
+      open={modalOpen}
+    />
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
@@ -142,7 +154,10 @@ export default function MiniDrawer() {
         </DrawerHeader>
         <Divider />
         <List>
-          <NavLink to="/">
+          <NavLink 
+            to="/"
+            className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+            >
             <ListItem key="home" disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -172,7 +187,7 @@ export default function MiniDrawer() {
                 justifyContent: open ? 'initial' : 'center',
                 px: 2.5,
               }}
-              onClick={onNavItemClick}
+              onClick={handleModalOpen}
             >
               <ListItemIcon
                 sx={{
@@ -186,7 +201,10 @@ export default function MiniDrawer() {
               <ListItemText primary={"Search"} sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
-          <NavLink to="/trending">
+          <NavLink 
+          to="/trending"
+          className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+          >
             <ListItem key={"trending"} disablePadding sx={{ display: 'block' }}>
             <ListItemButton
               sx={{
@@ -238,5 +256,6 @@ export default function MiniDrawer() {
         <DrawerHeader />
       </Box>
     </Box>
+    </>
   );
 }

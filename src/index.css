@@ -18,7 +18,7 @@ code {
 }
 
 main div.homeGrid #loadingAnimation {
-  position: relative;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -46,8 +46,6 @@ div.movieDetailImage {
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  margin-left: 74px;
-  margin-top: -24px;
 }
 
 main div.movieDetailWrapper {
@@ -57,8 +55,8 @@ main div.movieDetailWrapper {
   align-items: center;
   justify-content: center;
   margin-left: 74px;
-  margin-top: 72px;
-  margin-bottom: 24px;
+  margin-top: 7.5%;
+  margin-bottom: 10%;
 }
 
 main div.movieDetailButtonWrapper #loadingAnimation {
@@ -82,8 +80,8 @@ main div.movieDetailButtonWrapper button {
 
 div.movieDetailWrapper > h2 {
   font-size: 3rem;
-  margin-top: 0px;
-  padding-top: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 #addToFavourite {
@@ -108,8 +106,54 @@ article.movieDetailOverview {
   width: 50%;
 }
 
+#searchBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#searchBar {
+  width: 74%;
+  padding: 15px;
+}
+
+#searchButton {
+  padding: 9px;
+}
+
+.css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+}
+
 @media only screen and (max-width: 767px) {
   article.movieDetailOverview {
     width: 90%;
+  }
+  article.movieDetailOverview p {
+    font-size: 0.75rem;
+  }
+  div.movieDetailWrapper > h2 {
+    font-size: 1.5rem;
+  }
+  main div.movieDetailWrapper {
+    margin-top: 0px;
+  }
+  #addToFavourite {
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 726px) {
+  main div.homeGrid {
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
   }
 }

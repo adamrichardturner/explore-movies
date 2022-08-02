@@ -2,7 +2,3 @@ main div#movieDetailHead {
     display: flex;
     justify-content: flex-start;
 }
-
-main div.movieDetailWrapper {
-    height: 100vh;
-}
