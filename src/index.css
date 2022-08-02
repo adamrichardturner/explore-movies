@@ -81,6 +81,14 @@ div.movieDetailWrapper > h2 {
   cursor: pointer;
 }
 
+.favourite {
+  color: orangered !important;
+}
+
+.notFavourite {
+  color: gold !important;
+}
+
 article.movieDetailOverview {
   width: 50%;
 }

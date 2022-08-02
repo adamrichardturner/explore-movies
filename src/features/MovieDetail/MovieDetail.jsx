@@ -47,6 +47,7 @@ export const MovieDetail = () => {
                     <StarBorderIcon 
                     id="addToFavourite"
                     onClick={handleClick}
+                    className={favourites.includes(id) ? "favourite" : "notFavourite"}
                     />
                 </div>
                 <h2>{title}</h2>
