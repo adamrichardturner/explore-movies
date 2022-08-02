@@ -4,8 +4,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Explore Movies features a responsive movie grid of popular and trending movies. The data used in this application is sourced from [The Movie Database (TMdb) API](https://developers.themoviedb.org/3). The app was built primarily with React, React Router v6 & React-Redux toolkit, with use of Material UI components such as a Card and AppBar that have been customized.
 
-homepage.png
-
 ## Demo
 
 You can [view a live demo of this project deployed on my portfolio.](https://adamrichardturner.dev/projects/explore-movies/)
