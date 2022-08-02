@@ -13,11 +13,15 @@ const movieDetailSlice = createSlice({
     name: "selectedMovie",
     initialState: {
         selectedMovieId: '',
-        selectedMovieData: []
+        selectedMovieData: [],
+        isLoading: true
     },
     reducers: {
         updateSelectedMovieId: (state, action) => {
             state.selectedMovieId = action.payload;
+        },
+        clearSelectedMovieData: (state, action) => {
+            state.selectedMovieData = []
         }
     },
     extraReducers: {
@@ -37,5 +41,5 @@ const movieDetailSlice = createSlice({
     }
 });
 
-export const { updateSelectedMovieId } = movieDetailSlice.actions;
+export const { updateSelectedMovieId, clearSelectedMovieData } = movieDetailSlice.actions;
 export default movieDetailSlice.reducer;

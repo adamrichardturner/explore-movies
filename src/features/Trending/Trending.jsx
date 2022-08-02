@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getTrendingMovies } from "./trendingSlice";
-import { Loader } from '../Loader/Loader';
+import Loader from '../Loader/Loader.svg';
 
 export const Trending = () => {
     const dispatch = useDispatch();
@@ -28,7 +28,7 @@ export const Trending = () => {
     }, [dispatch]);
     return (
         <div className="homeGrid">
-            {isLoading ? <Loader /> : movieCards}
+            {isLoading ? <img src={Loader} id="loadingAnimation" alt="Loading"/> : movieCards}
         </div>
     );
 };

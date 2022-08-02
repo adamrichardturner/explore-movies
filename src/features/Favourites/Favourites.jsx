@@ -1,9 +1,12 @@
 import { MovieCard } from '../../components/MovieCard/MovieCard';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import StarBorder from '@mui/icons-material/StarBorder';
 
 export const Favourites = () => {
     let movies = useSelector(state => state.favourites.selectedMovieData);
+    const noFavourites = <h2>You have no favourites saved! Add some...<StarBorderIcon /></h2>
     const movieCards = Object.values(movies).map((movie, index) => {
         return (
             <Link to={`/movie/${movie.id}`} key={movie.id}>
@@ -19,7 +22,7 @@ export const Favourites = () => {
 
     return (
         <div className="homeGrid">
-            {movieCards}
+            {movies.length > 0 ? movieCards : noFavourites}
         </div>
     )
 }

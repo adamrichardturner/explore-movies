@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getHomeMovies } from './homeSlice';
-import { Loader } from '../Loader/Loader';
+import Loader from '../Loader/Loader.svg';
 
 export const Home = () => {
     const dispatch = useDispatch();
@@ -30,7 +30,7 @@ export const Home = () => {
 
     return (
         <div className="homeGrid">
-            {isLoading ? <Loader /> : movieCards}
+            {isLoading ? <img src={Loader} id="loadingAnimation" alt="Loading"/> : movieCards}
         </div>
     )
 }
