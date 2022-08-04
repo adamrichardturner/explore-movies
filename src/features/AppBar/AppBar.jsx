@@ -113,6 +113,7 @@ export default function MiniDrawer() {
     setOpen(false);
   };
 
+  // Handle SearchBar modal state and events
   const [modalOpen, setModalOpen] = React.useState(false);
 
   const handleModalOpen = () => {
