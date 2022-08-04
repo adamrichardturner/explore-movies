@@ -17,6 +17,17 @@ code {
     monospace;
 }
 
+/* Drawerer and AppBar Resets */
+.css-zxdg2z {
+  padding: 0 !important;
+}
+
+main {
+  margin-left: 65px;
+}
+
+/* End Drawerer and AppBar Resets */
+
 main div.homeGrid #loadingAnimation {
   position: absolute;
   top: 50%;
@@ -26,8 +37,6 @@ main div.homeGrid #loadingAnimation {
 
 main div.homeGrid {
   height: 100vh;
-  margin-left: 62px;
-  margin-top: -50px;
   display: grid;
   padding: 10px;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -41,7 +50,8 @@ div.movieDetailImage > img {
 }
 
 div.movieDetailImage {
-  max-width: 60vw;
+  padding-top: 10px;
+  max-width: 45vw;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -53,10 +63,7 @@ main div.movieDetailWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-left: 74px;
-  margin-top: 7.5%;
-  margin-bottom: 10%;
+  justify-content: flex-start;
 }
 
 main div.movieDetailButtonWrapper #loadingAnimation {
@@ -115,6 +122,15 @@ article.movieDetailOverview {
   box-shadow: none;
 }
 
+#searchButton {
+  background-color: white;
+  margin: 0em;
+  padding: 1px 6px;
+  border-width: 2px;
+  border-style: outset;
+  border-image: initial;
+}
+
 form {
   display: flex;
   align-items: center;
@@ -140,6 +156,7 @@ form {
   }
   article.movieDetailOverview p {
     font-size: 0.75rem;
+    text-align: left;
   }
   div.movieDetailWrapper > h2 {
     font-size: 1.5rem;
@@ -147,8 +164,24 @@ form {
   main div.movieDetailWrapper {
     margin-top: 0px;
   }
+  div.movieDetailImage {
+    max-width: 80vw;
+    padding-right: 8px;
+  }
+  div.movieDetailButtonWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  div.movieDetailButtonWrapper button {
+    margin-top: 10px;
+  }
   #addToFavourite {
     margin: 0 auto;
+  }
+  main div.homeGrid #loadingAnimation {
+    left: 57%;
   }
 }
 

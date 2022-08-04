@@ -19,7 +19,6 @@ app.get(popularEndpoint, (req, res) => {
         url: fullPopularQuery
     }
     axios.request(options).then((response) => {
-        console.log(response.data.results)
         res.json(response.data.results);
 
     }).catch((error) => {
