@@ -32,7 +32,7 @@ Clone the repository and add a .env file in the src directory.
 
 Visit and register at [TMDb API](https://developers.themoviedb.org/3/getting-started/introduction) to obtain an API key.
 
-Place your API key in a env. file and store in project root as follows:
+Place your API key in a .env file and store in project root as follows:
 
 TMDB_API_KEY="API KEY HERE"
 
