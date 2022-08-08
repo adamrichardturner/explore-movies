@@ -10,7 +10,7 @@ You can [view a live demo of this project deployed on my portfolio.](https://ada
 
 ## Features
 
-1. Responsive Home & Trending Gallery of Popular Movies - The homepage serves 20 of the most popular movies on TMdb. There is also a Trending page that returns trending movies. 
+1. Responsive Home & Trending Gallery of Popular Movies - Queries serve 20 movies per page with up-to 1000 pages of results, all handled with pagination.
 
 2. Movie Details View - Users can click an individual movie card and it will serve a page with metadata regarding the chosen movie.
 
@@ -20,7 +20,7 @@ You can [view a live demo of this project deployed on my portfolio.](https://ada
 
 ## Future Enhancements
 
-1. Infinite Scroll - It is possible to fetch pages of more than 20 movie data requests (according to the API documentation, up to 1000 pages). It would be interesting to implement an infinte scroll feature where the user fetches more movies on scroll.
+1. Infinite Scroll - It would be interesting to implement an infinte scroll feature where the user fetches more movies on scroll.
 
 2. Persistent Storage - Using browser based features or a backend with database, it would be useful to implement saving to favourites per user. 
 
