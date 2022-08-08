@@ -1,17 +1,20 @@
-const PORT = 8000;
+const path = require('path');
+const PORT = process.env.PORT || 8000;
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
 require('dotenv').config();
 const app = express();
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, './build')));
+
+app.use(cors());
 
 const BASE_URL = "https://api.themoviedb.org/3";
 
 const popularEndpoint = "/discover/movie";
 const popularQuery = "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&with_watch_monetization_types=flatrate"
 const fullPopularQuery = `${BASE_URL}${popularEndpoint}?api_key=${process.env.TMDB_API_KEY}${popularQuery}`;
-
-app.use(cors());
   
 app.get(popularEndpoint, (req, res) => {
     const page = req.query.page;
@@ -76,5 +79,8 @@ app.get(trendingEndpoint, (req, res) => {
     })
 })
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+  });
 
 app.listen(8000, () => console.log(`Server is running on port ${PORT}`));
