@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import SearchIcon from '@mui/icons-material/Search';
-import { getSearchQueryMovies, updateSearchTerm, clearSearchTerm } from './searchBarSlice';
+import { getSearchQueryMovies, updateSearchTerm } from './searchBarSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,18 +20,26 @@ const style = {
 
 export const SearchBar = ({handleModalOpen, open}) => {
   const dispatch = useDispatch();
-  const searchTerm = useSelector(state => state.search.searchTerm);
-  const handleSearch = (event) => {
-      dispatch(updateSearchTerm(event.target.value));
-  }
+  const page = useSelector(state => state.pagination.page);
   const navigate = useNavigate();
   const handleSubmit = (event) => {
-      event.preventDefault();
-      dispatch(getSearchQueryMovies(searchTerm))
-      dispatch(clearSearchTerm())
+    const searchTerm = event.target.searchInput.value;
+    if(searchTerm === undefined || searchTerm === '') {
+      handleModalOpen();
+      navigate('/search/404');
+    } else {
+      console.log('dispatching')
+      dispatch(updateSearchTerm(searchTerm));
+      dispatch(getSearchQueryMovies({
+        search: searchTerm,
+        pageNum: page
+      }));
       handleModalOpen();
       navigate('/search')
+    }
+    event.preventDefault();
   }
+
   return (
     <div>
       <Modal
@@ -42,8 +50,10 @@ export const SearchBar = ({handleModalOpen, open}) => {
       >
         <Box sx={style} id="searchBox">
             <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Search.." id="searchBar" value={searchTerm} onChange={handleSearch}/>
-                <button type="submit" id="searchButton"><SearchIcon /></button>
+              <div className="searchWrapper">
+                <input type="text" placeholder="Search.." id="searchBar" name="searchInput" />
+                <button type="submit" id="searchButton"><SearchIcon className="searchIcon"/></button>
+              </div>
             </form>
         </Box>
       </Modal>

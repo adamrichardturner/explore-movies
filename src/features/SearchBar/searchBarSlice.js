@@ -3,8 +3,10 @@ import { Tmdb } from '../../util/Tmdb';
 
 export const getSearchQueryMovies = createAsyncThunk(
     'search/movies',
-    async (searchTerm, thunkAPI) => {
-        const response = await Tmdb.getMovieFromSearch(searchTerm);
+    async ({search, pageNum}, thunkAPI) => {
+        console.log(search, pageNum)
+        const response = await Tmdb.getMovieFromSearch(search, pageNum);
+        console.log(search, pageNum)
         return response[0];
     }
 );

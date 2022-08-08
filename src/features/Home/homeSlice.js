@@ -3,9 +3,9 @@ import { Tmdb } from '../../util/Tmdb';
 
 export const getHomeMovies = createAsyncThunk(
     'home/movies',
-    async (thunkAPI) => {
-        const response = await Tmdb.getPopularMovies();
-        return response;
+    async (page, thunkAPI) => {
+        const response = await Tmdb.getPopularMovies(page);
+        return response[0];
     }
 );
 

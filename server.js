@@ -8,19 +8,19 @@ const app = express();
 const BASE_URL = "https://api.themoviedb.org/3";
 
 const popularEndpoint = "/discover/movie";
-const popularQuery = "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate"
+const popularQuery = "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&with_watch_monetization_types=flatrate"
 const fullPopularQuery = `${BASE_URL}${popularEndpoint}?api_key=${process.env.TMDB_API_KEY}${popularQuery}`;
 
 app.use(cors());
   
 app.get(popularEndpoint, (req, res) => {
+    const page = req.query.page;
     const options = {
         method: 'GET',
-        url: fullPopularQuery
+        url: fullPopularQuery + `&page=${page}`
     }
     axios.request(options).then((response) => {
         res.json(response.data.results);
-
     }).catch((error) => {
         console.error(error);
     })
@@ -46,9 +46,10 @@ const searchMovieEndpoint = "/search/movie";
 
 app.get(searchMovieEndpoint, (req, res) => {
     const term = req.query.term;
+    const page = req.query.page;
     const options = {
         method: 'GET',
-        url: `${BASE_URL}${searchMovieEndpoint}?api_key=${process.env.TMDB_API_KEY}&query=${term}&include_adult=false`
+        url: `${BASE_URL}${searchMovieEndpoint}?api_key=${process.env.TMDB_API_KEY}&query=${term}&include_adult=false&page=${page}`
     }
     axios.request(options).then((response) => {
         res.json(response.data);
@@ -62,9 +63,10 @@ const trendingData = "/movie/week";
 const fullTrendingQuery = `${BASE_URL}${trendingEndpoint}${trendingData}?api_key=${process.env.TMDB_API_KEY}`;
 
 app.get(trendingEndpoint, (req, res) => {
+    const page = req.query.page;
     const options = {
         method: 'GET',
-        url: fullTrendingQuery
+        url: fullTrendingQuery + `&page=${page}`
     }
     axios.request(options).then((response) => {
         res.json(response.data.results);

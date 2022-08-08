@@ -8,10 +8,11 @@ import { MovieDetail } from '../features/MovieDetail/MovieDetail';
 import { Trending } from '../features/Trending/Trending';
 import { Favourites } from '../features/Favourites/Favourites';
 import { Search } from '../features/Search/Search';
+import { SearchFailure } from '../features/Search/SearchFailure';
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="App" style={{height: '100vh'}}>
       <nav>
         <MiniDrawer />
       </nav>
@@ -19,6 +20,7 @@ const App = () => {
         <ScrollToTop />
         <Routes>
           <Route path="/movie/:id" element={<MovieDetail />} />
+          <Route path="/search/404" element={<SearchFailure />} />
           <Route path="/search" element={<Search />} />
           <Route path="/trending" element={<Trending />} />
           <Route path="/favourites" element={<Favourites />} />

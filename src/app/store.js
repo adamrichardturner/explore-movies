@@ -5,6 +5,7 @@ import homeSlice from '../features/Home/homeSlice';
 import movieDetailSlice from '../features/MovieDetail/movieDetailSlice';
 import trendingSlice from '../features/Trending/trendingSlice';
 import searchBarSlice from '../features/SearchBar/searchBarSlice';
+import paginationSlice from '../components/Pagination/paginationSlice';
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
     home: homeSlice,
     selectedMovie: movieDetailSlice,
     trending: trendingSlice,
-    search: searchBarSlice
+    search: searchBarSlice,
+    pagination: paginationSlice
   }
 });

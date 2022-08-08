@@ -1,0 +1,24 @@
+aside {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+aside p {
+    padding: 0px 18px;
+}
+
+aside > svg {
+    font-size: 2rem !important;
+    cursor: pointer;
+}
+
+.firstPage, .lastPage {
+    color: grey;
+    cursor: default;
+}
+
+.normalArrow {
+    color: black;
+}

@@ -1,29 +1,21 @@
 import axios from "axios";
 
 export const Tmdb = {
-    async getPopularMovies () {
-        try {
-            const response = await fetch(`http://localhost:8000/discover/movie/`);
-            if(response.ok) {
-                const jsonResponse = await response.json();
-                return Object.values(jsonResponse);
+    async getPopularMovies (page) {
+        const response = await axios.get('http://localhost:8000/discover/movie/', {
+            params: {
+                page: page
             }
-            throw new Error('Request to get Popular Movies failed.');
-        } catch (error) {
-            console.log(error);
-        }
+        });
+        return await Object.values(response);
     },
-    async getTrendingMovies () {
-        try {
-            const response = await fetch('http://localhost:8000/trending/');
-            if(response.ok) {
-                const jsonResponse = await response.json();
-                return Object.values(jsonResponse);
+    async getTrendingMovies (page) {
+        const response = await axios.get('http://localhost:8000/trending/', {
+            params: {
+                page: page
             }
-            throw new Error('Request for trending movies failed.');
-        } catch (error) {
-            console.log(error);
-        }
+        });
+        return await Object.values(response);
     },
     async getMovieDetails (movieId) {
         const response = await axios.get('http://localhost:8000/movie/', {
@@ -33,12 +25,13 @@ export const Tmdb = {
         });
         return await Object.values(response);
     },
-    async getMovieFromSearch (searchTerm) {
+    async getMovieFromSearch (searchTerm, page) {
         const response = await axios.get('http://localhost:8000/search/movie', {
             params: {
-                term: searchTerm
+                term: searchTerm,
+                page: page
             }
         });
         return await Object.values(response);
     }
-}
+};

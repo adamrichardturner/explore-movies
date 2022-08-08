@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
 }
 
 a, a:hover, a:active, a:focus {
@@ -24,6 +25,8 @@ code {
 
 main {
   margin-left: 65px;
+  margin-bottom: 5px;
+  min-height: 100vh;
 }
 
 /* End Drawerer and AppBar Resets */
@@ -36,10 +39,10 @@ main div.homeGrid #loadingAnimation {
 }
 
 main div.homeGrid {
-  height: 100vh;
+  height: 100%;
   display: grid;
   padding: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   grid-gap: 5px;
 }
 
@@ -96,6 +99,23 @@ div.movieDetailWrapper > h2 {
   color: gold;
 }
 
+div.favouritesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+div.favouritesGrid img {
+  width: 270px;
+  height: auto;
+  padding: 5px;
+}
+
+h2#favouritesHeader {
+  text-align: center;
+}
+
 #addToFavourite:hover {
   color: orangered;
   cursor: pointer;
@@ -120,34 +140,65 @@ article.movieDetailOverview {
   background: none;
   border: none;
   box-shadow: none;
+  width: 80vw;
+  color: white !important;
 }
 
-#searchButton {
-  background-color: white;
+#searchButton, #searchButton:focus-visible {
+  background-color: transparent;
   margin: 0em;
   padding: 1px 6px;
   border-width: 2px;
   border-style: outset;
   border-image: initial;
+  border: 2.25px solid white !important;
+  outline: none;
+}
+
+div.searchWrapper {
+  height: 10vh;
+  width: 100%;
+  border: 2.25px solid white;
+}
+
+input#searchBar {
+  color: white !important;
+  font-size: 1.25rem;
+  height: 100%;
+}
+
+.searchIcon {
+  color: white !important;
+}
+
+#searchBar, #searchBar:focus-visible, #searchBar:focus {
+  width: 32vw;
+  padding: 18px 15px 15px 15px;
+  background: transparent;
+  outline: none;
+  border: none !important;
+}
+
+#searchButton {
+  padding: 15px;
+  font-size: 1.25rem;
+  height: 100%;
+  border: none !important;
+  background-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+#searchButton:hover {
+  cursor: pointer;
+}
+
+.css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop {
+  background-color: rgba(0, 0, 0, 0.9) !important;
 }
 
 form {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-#searchBar {
-  width: 74%;
-  padding: 15px;
-}
-
-#searchButton {
-  padding: 9px;
-}
-
-.css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop {
-  background-color: rgba(0, 0, 0, 0.75) !important;
 }
 
 @media only screen and (max-width: 767px) {
