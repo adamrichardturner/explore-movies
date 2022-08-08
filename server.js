@@ -6,7 +6,7 @@ const axios = require('axios');
 require('dotenv').config();
 const app = express();
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, './build')));
+app.use(express.static(path.resolve(__dirname, "./client/build")));
 
 app.use(cors());
 
