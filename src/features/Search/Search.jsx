@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -19,10 +18,6 @@ export const Search = () => {
             </Link>
         )
     });
-
-    useEffect(() => {
-
-    })
 
     return (
         <div className="homeGrid">

@@ -5,6 +5,7 @@ import homeSlice from '../features/Home/homeSlice';
 import movieDetailSlice from '../features/MovieDetail/movieDetailSlice';
 import trendingSlice from '../features/Trending/trendingSlice';
 import searchBarSlice from '../features/SearchBar/searchBarSlice';
+
 export const store = configureStore({
   reducer: {
     nav: appBarSlice,
