@@ -145,7 +145,7 @@ article.movieDetailOverview {
 }
 
 #searchButton, #searchButton:focus-visible {
-  background-color: transparent;
+  background-color: black;
   margin: 0em;
   padding: 1px 6px;
   border-width: 2px;
@@ -156,14 +156,16 @@ article.movieDetailOverview {
 }
 
 div.searchWrapper {
-  height: 10vh;
-  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   border: 2.25px solid white;
+  background: black;
 }
 
-input#searchBar {
+input#searchBar, input#searchBar:focus {
   color: white !important;
-  font-size: 1.25rem;
+  font-size: 1rem;
   height: 100%;
 }
 
@@ -173,8 +175,8 @@ input#searchBar {
 
 #searchBar, #searchBar:focus-visible, #searchBar:focus {
   width: 32vw;
-  padding: 18px 15px 15px 15px;
-  background: transparent;
+  padding: 15px;
+  background: black;
   outline: none;
   border: none !important;
 }
@@ -184,21 +186,15 @@ input#searchBar {
   font-size: 1.25rem;
   height: 100%;
   border: none !important;
-  background-color: rgba(255, 255, 255, 0.25) !important;
+  background-color: rgb(0, 0, 0) !important;
+}
+
+#searchButton svg {
+  color: white !important;
 }
 
 #searchButton:hover {
   cursor: pointer;
-}
-
-.css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop {
-  background-color: rgba(0, 0, 0, 0.9) !important;
-}
-
-form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 @media only screen and (max-width: 767px) {

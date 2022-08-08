@@ -1,6 +1,8 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
+import InputBase from '@mui/material/InputBase';
+import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import { getSearchQueryMovies, updateSearchTerm } from './searchBarSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,7 +30,6 @@ export const SearchBar = ({handleModalOpen, open}) => {
       handleModalOpen();
       navigate('/search/404');
     } else {
-      console.log('dispatching')
       dispatch(updateSearchTerm(searchTerm));
       dispatch(getSearchQueryMovies({
         search: searchTerm,
@@ -49,12 +50,20 @@ export const SearchBar = ({handleModalOpen, open}) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style} id="searchBox">
-            <form onSubmit={handleSubmit}>
               <div className="searchWrapper">
-                <input type="text" placeholder="Search.." id="searchBar" name="searchInput" />
-                <button type="submit" id="searchButton"><SearchIcon className="searchIcon"/></button>
+                <form onSubmit={handleSubmit}>
+                <InputBase
+                  sx={{ ml: 1, flex: 1 }}
+                  placeholder="Search Movies..."
+                  inputProps={{ 'aria-label': 'search movies' }}
+                  name="searchInput"
+                  id="searchBar"
+                />
+                <IconButton type="submit" id="searchButton" sx={{ p: '10px' }} aria-label="search">
+                  <SearchIcon />
+                </IconButton>
+                </form>
               </div>
-            </form>
         </Box>
       </Modal>
     </div>
