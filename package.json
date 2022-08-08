@@ -2,9 +2,6 @@
   "name": "explore-movies",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "16.15.1"
-  },
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
@@ -34,6 +31,9 @@
   },
   "scripts": {
     "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "start:frontend": "react-scripts start",
+    "start:backend": "nodemon server.js",
     "build": "react-scripts build",
     "test": "jest",
     "eject": "react-scripts eject"

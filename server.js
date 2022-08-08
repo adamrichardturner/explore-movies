@@ -14,7 +14,7 @@ const BASE_URL = "https://api.themoviedb.org/3";
 const popularEndpoint = "/discover/movie";
 const popularQuery = "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&with_watch_monetization_types=flatrate"
 const fullPopularQuery = `${BASE_URL}${popularEndpoint}?api_key=${process.env.TMDB_API_KEY}${popularQuery}`;
-  
+
 app.get(popularEndpoint, (req, res) => {
     const page = req.query.page;
     const options = {
