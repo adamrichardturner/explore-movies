@@ -3,7 +3,6 @@ const PORT = process.env.PORT || 8000;
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
-require('dotenv').config();
 const app = express();
 // Serve static files from the React app
 app.use(express.static(path.resolve(__dirname, "./client/build")));
