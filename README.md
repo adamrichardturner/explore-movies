@@ -26,6 +26,12 @@ You can [view a live demo of this project deployed on my portfolio.](https://ada
 
 3. More information on the Movie Details View - It would be useful to include Movie trailers, links to the website for the movie and actor details.
 
+## Known Issues
+
+1. Query Results - It is possible to browse forward more pages than there are results. This needs to be controlled for by examining the API response and managing state appropriately.
+
+2. Styling on Search Input - Needs to be improved as the modal text is hard to read with a transparent background.
+
 ## Getting Started
 
 Clone the repository and add a .env file in the src directory.
