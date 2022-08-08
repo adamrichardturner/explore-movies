@@ -31,7 +31,6 @@
   },
   "scripts": {
     "start": "node server.js",
-    "heroku-postbuild": "cd client && npm install && npm run build",
     "start:frontend": "react-scripts start",
     "start:backend": "nodemon server.js",
     "build": "react-scripts build",
