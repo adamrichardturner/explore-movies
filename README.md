@@ -6,7 +6,7 @@ Explore Movies features a responsive movie grid of popular and trending movies. 
 
 ## Demo
 
-You can [view a live demo of this project deployed on my portfolio.](https://adamrichardturner.dev/projects/explore-movies/)
+You can [view a live demo of this project deployed on my portfolio.](https://exploremovies.app/)
 
 ## Features
 
