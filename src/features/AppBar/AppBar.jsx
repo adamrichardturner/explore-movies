@@ -24,6 +24,7 @@ import { updateSelectedItem } from './appBarSlice';
 import { useDispatch } from 'react-redux';
 import { NavLink } from "react-router-dom";
 import { SearchBar } from '../SearchBar/SearchBar';
+import { resetPage } from '../../components/Pagination/paginationSlice';
 
 const drawerWidth = 240;
 
@@ -99,6 +100,7 @@ export default function MiniDrawer() {
     const onNavItemClick = (event) => {
     // When a nav item is clicked, update state.nav
     // with the selected item
+    dispatch(resetPage());
     dispatch(updateSelectedItem(String(event.target.outerText).toLowerCase()));
     };
 
